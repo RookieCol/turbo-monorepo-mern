@@ -38,35 +38,6 @@ npm run start
 
 ## Project Structure
 
-The project is structured as follows:
-├── apps
-│   ├── api
-│   │   ├── nest-cli.json
-│   │   ├── package.json
-│   │   ├── README.md
-│   │   └── src
-│   │       ├── app.controller.spec.ts
-│   │       ├── app.controller.ts
-│   │       ├── app.module.ts
-│   │       ├── app.service.ts
-│   │       └── main.ts
-│   └── webclient
-│       ├── package.json
-│       ├── public
-│       │   └── vite.svg
-│       ├── src
-│       │   ├── App.css
-│       │   ├── App.tsx
-│       │   ├── index.css
-│       │   ├── main.tsx
-│       │   └── vite-env.d.ts
-│       ├── tsconfig.json
-│       └── vite.config.ts
-├── package.json
-├── package-lock.json
-└── turbo.json
-
-
 - The `apps` folder contains two sub-folders: `api` and `webclient`.
 - The `api` folder contains the backend API code built with NestJS. It has its own package.json, source code in the `src` folder, and TypeScript configuration in the `tsconfig.json` file.
 - The `webclient` folder contains the frontend web client code built with React. It also has its own package.json, source code in the `src` folder, and TypeScript configuration in the `tsconfig.json` file.
