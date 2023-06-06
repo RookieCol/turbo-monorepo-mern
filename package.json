@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "turbo": "^1.9.9"
+    "turbo": "^1.10.1"
   },
   "workspaces": [
     "apps/*"
