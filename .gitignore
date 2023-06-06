@@ -4,3 +4,8 @@
 
 # builds
 /**/**/dist
+
+
+#enviroment variable 
+.env
+
