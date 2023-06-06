@@ -20,6 +20,7 @@ export class Task {
   @Prop({
     required: true,
     trim: true,
+    unique:true
   })
   title: string;
   
