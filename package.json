@@ -12,9 +12,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "turbo": "^1.10.1",
-    "dotenv-cli": "^7.2.1"
-    
+    "autoprefixer": "^10.4.14",
+    "dotenv-cli": "^7.2.1",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2",
+    "turbo": "^1.10.2"
   },
   "workspaces": [
     "apps/*"
