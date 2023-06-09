@@ -1,6 +1,6 @@
-import { Task } from "../utils/interfaces";
+import { CreateTask, Task } from "../utils/interfaces";
 
-export async function createTaskRequest(task: Task) {
+export async function createTaskRequest(task: CreateTask) {
     const response = await fetch('http://localhost:3000/api/tasks', {
       method: 'POST',
       headers: {
@@ -16,3 +16,7 @@ export async function createTaskRequest(task: Task) {
     return response;
   }
   
+
+  export const getTaskRequest = async()=>{
+    return fetch('http://localhost:3000/api/tasks')
+  }

@@ -1,12 +1,12 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Task, TaskStatus } from '../utils/interfaces';
-import { createTaskRequest } from '../api/task';
+import { createTaskRequest } from '../api/tasks';
 
 
 
 // Use the interface and enum in your component
 const TaskForm: React.FC = () => {
-  const [task, setTask] = useState<Task>({ title: '', description: '', status: TaskStatus.OPEN });
+  const [task, setTask] = useState({ title: '', description: '', status: TaskStatus.OPEN });
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setTask((prevTasks) => ({ ...prevTasks, [name]: value }));
