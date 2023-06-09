@@ -1,4 +1,4 @@
-import { CreateTask, Task } from "../utils/interfaces";
+import { CreateTask } from "../utils/interfaces";
 
 export async function createTaskRequest(task: CreateTask) {
     const response = await fetch('http://localhost:3000/api/tasks', {
