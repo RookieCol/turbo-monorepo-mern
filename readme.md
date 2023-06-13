@@ -13,6 +13,9 @@ git clone https://github.com/RookieCol/turbo-monorepo-mern.git`
 cd turbo-monorepo-mern
 npm install
 ```
+## Environment Configuration
+
+Rename the .env.develop file in the root directory to .env. Open the .env file and provide the MONGO_URI value with your MongoDB connection URI.
 ## Development
 
 To start the development environment, run the following command:
@@ -28,13 +31,6 @@ To build the project for production, run the following command:
 npm run build
 ```
 This will compile the TypeScript code and generate the necessary build artifacts.
-
-## Starting the API
-
-To start the API server in production mode, run the following command:
-```bash
-npm run start
-```
 
 ## Project Structure
 

@@ -1,12 +1,16 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { Task, TaskStatus } from '../utils/interfaces';
-import { createTaskRequest } from '../api/tasks';
+import { TaskStatus } from '../utils/interfaces';
+import { useTasks } from '../context/useTasks';
 
 
 
 // Use the interface and enum in your component
 const TaskForm: React.FC = () => {
   const [task, setTask] = useState({ title: '', description: '', status: TaskStatus.OPEN });
+ 
+  const {createTask}= useTasks()
+ 
+ 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setTask((prevTasks) => ({ ...prevTasks, [name]: value }));
@@ -14,9 +18,7 @@ const TaskForm: React.FC = () => {
 
   const handleSubmit = async(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await createTaskRequest(task);
-    const data = await res.json();
-    console.log(data);
+    createTask(task)
   };
 
   return (
@@ -51,7 +53,7 @@ const TaskForm: React.FC = () => {
         </select>
         <button  
         type='submit'
-        className="w-1/2 py-2 mt-4 bg-yellow-400 text-black rounded-lg mx-auto block">Save</button>
+        className="w-1/2 py-2 mt-4 bg-yellow-400 text-black rounded-lg mx-auto block hover:bg-yellow-200">Save</button>
       </form>
     </div>
   );
