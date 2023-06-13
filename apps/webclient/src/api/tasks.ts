@@ -1,4 +1,4 @@
-import { CreateTask } from "../utils/interfaces";
+import { CreateTask, UpdateTask } from "../utils/interfaces";
 
 export async function createTaskRequest(task: CreateTask) {
   const response = await fetch('http://localhost:3000/api/tasks', {
@@ -38,9 +38,9 @@ export const deleteTaskRequest = async (taskId: string) => {
   return response;
 };
 
-export const updateTaskRequest = async (taskId: string, task: CreateTask) => {
+export const updateTaskRequest = async (taskId: string, task: UpdateTask) => {
   const response = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
-    method: 'PUT',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },

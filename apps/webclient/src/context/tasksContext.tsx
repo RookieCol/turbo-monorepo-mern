@@ -1,17 +1,24 @@
 import React, { createContext, useEffect, useState } from "react";
-import { CreateTask, Task } from "../utils/interfaces";
-import { createTaskRequest, getTaskRequest, deleteTaskRequest } from "../api/tasks";
+import { CreateTask, Task, UpdateTask } from "../utils/interfaces";
+import {
+  createTaskRequest,
+  getTaskRequest,
+  deleteTaskRequest,
+  updateTaskRequest,
+} from "../api/tasks";
 
 interface TasksContextType {
   tasks: Task[];
   createTask: (task: CreateTask) => void;
   deleteTask: (id: string) => Promise<void>;
+  updateTask: (id: string, task: UpdateTask) => Promise<void>;
 }
 
 export const TasksContext = createContext<TasksContextType>({
   tasks: [],
   createTask: async () => {},
   deleteTask: async () => {},
+  updateTask: async () => {},
 });
 
 interface Props {
@@ -54,8 +61,23 @@ export const TasksProvider: React.FC<Props> = ({ children }) => {
     }
   };
 
+  const updateTask = async (id: string, task: UpdateTask) => {
+    try {
+      await updateTaskRequest(id, task);
+      setTasks((prevTasks) =>
+        prevTasks.map((taskItem) =>
+          taskItem._id === id ? { ...taskItem, ...task } : taskItem
+        )
+      );
+    } catch (error) {
+      console.error("Error updating task:", error);
+    }
+  };
+
   return (
-    <TasksContext.Provider value={{ tasks, createTask, deleteTask }}>
+    <TasksContext.Provider
+      value={{ tasks, createTask, deleteTask, updateTask }}
+    >
       {children}
     </TasksContext.Provider>
   );
